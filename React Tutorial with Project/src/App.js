@@ -15,6 +15,8 @@ class App extends Component {
           To get started, edit <code>src/App.js</code> and save to reload.
         </p>
         <Person></Person> 
+        <Person></Person> 
+        <Person></Person> 
       </div>
     );
    /// return React.createElement('div',{className:'App'},React.createElement('h1',null,'My name is Rishav'))

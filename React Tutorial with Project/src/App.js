@@ -1,10 +1,11 @@
 import React, { Component } from 'react';
 import logo from './logo.svg';
 import './App.css';
+import Person from './Person/Person';
 
 class App extends Component {
   render() {
-    /*return (
+    return (
       <div className="App">
         <header className="App-header">
           <img src={logo} className="App-logo" alt="logo" />
@@ -13,9 +14,10 @@ class App extends Component {
         <p className="App-intro">
           To get started, edit <code>src/App.js</code> and save to reload.
         </p>
+        <Person></Person> 
       </div>
-    );*/
-    return React.createElement('div',{className:'App'},React.createElement('h1',null,'My name is Rishav'))
+    );
+   /// return React.createElement('div',{className:'App'},React.createElement('h1',null,'My name is Rishav'))
   }
 }
 

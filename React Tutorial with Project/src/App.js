@@ -14,6 +14,14 @@ state = {
 
 switchNameHandler = () =>{
   console.log('Clicked');
+//  this.state.person[0].name = 'Rishav'; //it will not work due to mutable
+  this.setState({
+    person:[
+    {name : 'Rishav',age :24},
+    {name : 'Gopal',age :23},
+    {name : 'Anish',age :88}
+  ]
+  })
 }
 
   render() {

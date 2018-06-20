@@ -12,6 +12,10 @@ state = {
   ]
 }
 
+switchNameHandler = () =>{
+  console.log('Clicked');
+}
+
   render() {
     return (
       <div className="App">
@@ -22,7 +26,7 @@ state = {
         <p className="App-intro">
           To get started, edit <code>src/App.js</code> and save to reload.
         </p>
-        <button>Switch Name</button>
+        <button onClick={this.switchNameHandler}>Switch Name</button>
         <Person name='Max' age="22"></Person> 
         <Person name='Vinesh' age="24">My Hobbies : Racing</Person> 
         <Person name='Diwakar' age="17"/>

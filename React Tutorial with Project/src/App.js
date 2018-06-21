@@ -38,9 +38,12 @@ switchNameHandler = () =>{
         <Person name='Max' age="22"></Person> 
         <Person name='Vinesh' age="24">My Hobbies : Racing</Person> 
         <Person name='Diwakar' age="17"/>
-        <Person name={this.state.person[0].name} age={this.state.person[0].age}></Person> 
-        <Person name={this.state.person[1].name} age={this.state.person[1].age}>My Hobbies : Racing</Person> 
-        <Person name={this.state.person[2].name} age={this.state.person[2].sge}/>
+        <Person 
+          name={this.state.person[0].name} age={this.state.person[0].age}></Person> 
+        <Person 
+           click = {this.switchNameHandler} name={this.state.person[1].name} age={this.state.person[1].age}>My Hobbies : Racing</Person> 
+        <Person 
+          name={this.state.person[2].name} age={this.state.person[2].sge}/>
 
       </div>
     );

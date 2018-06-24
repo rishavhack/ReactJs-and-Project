@@ -4,7 +4,7 @@ import './App.css';
 
 class App extends Component {
   render() {
-    return (
+    /*return (
       <div className="App">
         <header className="App-header">
           <img src={logo} className="App-logo" alt="logo" />
@@ -14,7 +14,9 @@ class App extends Component {
           To get started, edit <code>src/App.js</code> and save to reload.
         </p>
       </div>
-    );
+    );*/
+   // return React.createElement('div',null,'hi','bye');
+    return React.createElement('div',null,React.createElement('h1',{className:'App'},'My name is Hero'));
   }
 }
 

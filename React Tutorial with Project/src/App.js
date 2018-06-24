@@ -36,6 +36,14 @@ nameChangeHandler = (event) =>
 
 
   render() {
+    const style={
+      backgroundColor:'White',
+      font:'inherit',
+      border:'1px solid blue',
+      padding:'8px',
+      cursor:'pointer'
+    };
+
     return (
       <div className="App">
         <header className="App-header">
@@ -45,7 +53,7 @@ nameChangeHandler = (event) =>
         <p className="App-intro">
           To get started, edit <code>src/App.js</code> and save to reload.
         </p>
-        <button onClick={this.switchNameHandler.bind(this,'Diwakar')}>Switch Name</button>
+        <button onClick={this.switchNameHandler.bind(this,'Diwakar')} style={style}>Switch Name</button>
         <button onClick={()=>this.switchNameHandler('Max')}>Another Name</button>
         <Person 
            name='Max' age="22">

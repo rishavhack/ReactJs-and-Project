@@ -21,8 +21,19 @@ switchNameHandler = (newName) =>{
     {name : 'Gopal',age :23},
     {name : 'Anish',age :88}
   ]
+  });
+};
+nameChangeHandler = (event) =>
+{
+  this.setState({
+    person:[
+    {name : event.target.value,age :24},
+    {name : 'Gopal',age :23},
+    {name : 'Anish',age :88}
+  ]
   })
-}
+};
+
 
   render() {
     return (
@@ -36,13 +47,20 @@ switchNameHandler = (newName) =>{
         </p>
         <button onClick={this.switchNameHandler.bind(this,'Diwakar')}>Switch Name</button>
         <button onClick={()=>this.switchNameHandler('Max')}>Another Name</button>
-        <Person name='Max' age="22"></Person> 
-        <Person name='Vinesh' age="24">My Hobbies : Racing</Person> 
-        <Person name='Diwakar' age="17"/>
         <Person 
-          name={this.state.person[0].name} age={this.state.person[0].age}></Person> 
+           name='Max' age="22">
+        </Person> 
         <Person 
-           click = {this.switchNameHandler.bind(this,'Ashok')} name={this.state.person[1].name} age={this.state.person[1].age}>My Hobbies : Racing</Person> 
+          name='Vinesh' age="24">My Hobbies : Racing
+        </Person> 
+        <Person
+          name='Diwakar' age="17"/>
+        <Person 
+          name={this.state.person[0].name} age={this.state.person[0].age} change={this.nameChangeHandler}>
+          </Person> 
+        <Person 
+           click = {this.switchNameHandler.bind(this,'Ashok')} name={this.state.person[1].name} age={this.state.person[1].age}>My Hobbies : Racing
+          </Person> 
         <Person 
           name={this.state.person[2].name} age={this.state.person[2].sge}/>
 

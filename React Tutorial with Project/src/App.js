@@ -12,12 +12,12 @@ state = {
   ]
 }
 
-switchNameHandler = () =>{
+switchNameHandler = (newName) =>{
   console.log('Clicked');
 //  this.state.person[0].name = 'Rishav'; //it will not work due to mutable
   this.setState({
     person:[
-    {name : 'Rishav',age :24},
+    {name : newName,age :24},
     {name : 'Gopal',age :23},
     {name : 'Anish',age :88}
   ]
@@ -34,14 +34,15 @@ switchNameHandler = () =>{
         <p className="App-intro">
           To get started, edit <code>src/App.js</code> and save to reload.
         </p>
-        <button onClick={this.switchNameHandler}>Switch Name</button>
+        <button onClick={this.switchNameHandler.bind(this,'Diwakar')}>Switch Name</button>
+        <button onClick={()=>this.switchNameHandler('Max')}>Another Name</button>
         <Person name='Max' age="22"></Person> 
         <Person name='Vinesh' age="24">My Hobbies : Racing</Person> 
         <Person name='Diwakar' age="17"/>
         <Person 
           name={this.state.person[0].name} age={this.state.person[0].age}></Person> 
         <Person 
-           click = {this.switchNameHandler} name={this.state.person[1].name} age={this.state.person[1].age}>My Hobbies : Racing</Person> 
+           click = {this.switchNameHandler.bind(this,'Ashok')} name={this.state.person[1].name} age={this.state.person[1].age}>My Hobbies : Racing</Person> 
         <Person 
           name={this.state.person[2].name} age={this.state.person[2].sge}/>
 

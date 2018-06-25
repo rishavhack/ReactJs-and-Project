@@ -8,7 +8,8 @@ import Contion from './conditonal/contional';
 class App extends Component {
   state  = {
     perosn:[{name:'Rishav',age:24},
-            {name:'Saumya',age:'27'}
+            {name:'Saumya',age:'27'},
+            {name:'Hack',age:'27'},
             ],
     showDiv : false
 
@@ -20,6 +21,13 @@ class App extends Component {
       });
   }
   render() {
+    let per = null
+    if(!this.state.showDiv)
+    {
+      per = (<div>
+              <Contion name={this.state.perosn[2].name} />
+            </div>)
+    }
     return (
       <div className="App">
         <header className="App-header">
@@ -36,6 +44,7 @@ class App extends Component {
                 <Contion name={this.state.perosn[1].name} />
                 </div> : null
           }
+          {per}
       </div>
     );
   }

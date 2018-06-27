@@ -17,24 +17,19 @@ class App extends Component {
   }
   render() {
     
-    const style={
-      backgroundColor :'green',
-      color:'white',
-      font:'inherit',
-      border:'1px solid blue',
-      cursor:'pointer',
-    }
+    let btnClass = null;
     let showValue = null;
     if(this.state.showDiv)
     {
       showValue = (<div>
               <Styling name={this.state.person[0].name}/>
         </div>)
-      style.backgroundColor='blue';
+      btnClass = classes.Red;
     }
+
     return (
       <div className={classes.App}>
-        <button style={style} onClick={this.toggle}>Toggle</button>
+        <button className={btnClass} onClick={this.toggle}>Toggle</button>
         {showValue}
         <Styling stylepropert={classes.red} name={this.state.person[1].name} />
       </div>

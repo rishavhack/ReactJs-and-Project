@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import logo from './logo.svg';
-import Radium from 'radium';
+import Radium,{StyleRoot} from 'radium';
 import Styling from './styling/styling';
 import './App.css';
 
@@ -43,11 +43,13 @@ class App extends Component {
       }
     }
     return (
+      <StyleRoot>
       <div className="App">
         <button style={style} onClick={this.toggle}>Toggle</button>
         {showValue}
         <Styling stylepropert={classes} name={this.state.person[1].name} />
       </div>
+      </StyleRoot>
     );
   }
 }

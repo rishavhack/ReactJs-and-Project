@@ -3,7 +3,7 @@ import React, {Component} from 'react'
 const cond = (props) =>{
 	return(
 		<div>
-		<h3>Hello {props.name}</h3>
+		<h3 onClick={props.click}>Hello {props.name}</h3>
 		</div>
 		)
 }

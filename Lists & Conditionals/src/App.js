@@ -20,6 +20,12 @@ class App extends Component {
         showDiv : !toggling
       });
   }
+  showList = ()=>{
+    const toggling = this.state.showDiv;
+      this.setState({
+        showDiv : !toggling
+      });
+  }
   render() {
     let per = null
     if(!this.state.showDiv)
@@ -27,6 +33,15 @@ class App extends Component {
       per = (<div>
               <Contion name={this.state.perosn[2].name} />
             </div>)
+    }
+    let perosnlits = null
+    if(!this.state.showDiv)
+    {
+        perosnlits = (<div>
+          {this.state.perosn.map(lst =>{
+                      return <Contion name={lst.name} />
+                    })}
+        </div>)
     }
     return (
       <div className="App">
@@ -45,6 +60,8 @@ class App extends Component {
                 </div> : null
           }
           {per}
+          <button onClick={this.showList}> List </button>
+          {perosnlits}
       </div>
     );
   }

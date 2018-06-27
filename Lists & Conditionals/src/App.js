@@ -26,20 +26,25 @@ class App extends Component {
         showDiv : !toggling
       });
   }
+  deletePerson=(personIndex)=>{
+    const person = this.state.perosn;
+    person.splice(personIndex,1);
+    this.setState({perosn:person})
+  }
   render() {
     let per = null
     if(!this.state.showDiv)
     {
       per = (<div>
-              <Contion name={this.state.perosn[2].name} />
+             /* <Contion name={this.state.perosn[0].name} />*/
             </div>)
     }
     let perosnlits = null
     if(!this.state.showDiv)
     {
         perosnlits = (<div>
-          {this.state.perosn.map(lst =>{
-                      return <Contion name={lst.name} />
+          {this.state.perosn.map((lst,index) =>{
+                      return <Contion name={lst.name} click={()=>this.deletePerson(index)}/>
                     })}
         </div>)
     }

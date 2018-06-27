@@ -1,16 +1,11 @@
 import React,{Component} from 'react';
-import Radium from 'radium';
-import './styling.css';
+import classes from './styling.css';
 
 const styling =(props)=>{
-	const style={
-		'@media(min-width:500px)':{
-			width:'450px'
-		}
-	}
-	return(<div className='Person'>
+	
+	return(<div className={classes.Person}>
 		<h3 className={props.stylepropert}>Hi {props.name}</h3>
 		</div>)
 }
 
-export default Radium(styling)
+export default styling

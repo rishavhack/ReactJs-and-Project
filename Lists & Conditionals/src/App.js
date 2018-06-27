@@ -27,9 +27,20 @@ class App extends Component {
       });
   }
   deletePerson=(personIndex)=>{
-    const person = this.state.perosn;
+    //const person = this.state.perosn;
+    const person = [...this.state.perosn];
     person.splice(personIndex,1);
     this.setState({perosn:person})
+  }
+  changeValue = (event,id)=>{
+    const personIndex = this.state.perosn.findIndex(p=>{
+      return p.id === id;
+    });
+    const person = {...this.state.perosn[personIndex]};
+    person.name = event.target.value;
+    const newperson = [...this.state.perosn];
+    newperson[personIndex] = person
+    this.setState({perosn:newperson})
   }
   render() {
     let per = null
@@ -44,7 +55,8 @@ class App extends Component {
     {
         perosnlits = (<div>
           {this.state.perosn.map((lst,index) =>{
-                      return <Contion name={lst.name} click={()=>this.deletePerson(index)} key={lst.id}/>
+                      return <Contion name={lst.name} click={()=>this.deletePerson(index)} key={lst.id} 
+                      changes={(event)=>this.changeValue(event,lst.id)}/>
                     })}
         </div>)
     }

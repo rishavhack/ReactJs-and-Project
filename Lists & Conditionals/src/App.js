@@ -7,9 +7,9 @@ import Contion from './conditonal/contional';
 
 class App extends Component {
   state  = {
-    perosn:[{name:'Rishav',age:24},
-            {name:'Saumya',age:'27'},
-            {name:'Hack',age:'27'},
+    perosn:[{id:'skj1',name:'Rishav',age:24},
+            {id:'sdj12',name:'Saumya',age:'27'},
+            {id:'sd',name:'Hack',age:'27'},
             ],
     showDiv : false
 
@@ -36,7 +36,7 @@ class App extends Component {
     if(!this.state.showDiv)
     {
       per = (<div>
-             /* <Contion name={this.state.perosn[0].name} />*/
+              <Contion name={this.state.perosn[0].name} />
             </div>)
     }
     let perosnlits = null
@@ -44,7 +44,7 @@ class App extends Component {
     {
         perosnlits = (<div>
           {this.state.perosn.map((lst,index) =>{
-                      return <Contion name={lst.name} click={()=>this.deletePerson(index)}/>
+                      return <Contion name={lst.name} click={()=>this.deletePerson(index)} key={lst.id}/>
                     })}
         </div>)
     }

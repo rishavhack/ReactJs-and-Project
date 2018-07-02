@@ -32,7 +32,7 @@ class App extends Component {
     this.setState( { persons: persons } );
   }
 
-  deletePersonHandler = ( personIndex ) => {
+  deletePerson = ( personIndex ) => {
     // const persons = this.state.persons.slice();
     const persons = [...this.state.persons];
     persons.splice( personIndex, 1 );
@@ -53,7 +53,7 @@ class App extends Component {
         <div>
           {this.state.persons.map( ( person, index ) => {
             return <Person
-              click={() => this.deletePersonHandler( index )}
+              click={() => this.deletePerson( index )}
               name={person.name}
               age={person.age}
               key={person.id}

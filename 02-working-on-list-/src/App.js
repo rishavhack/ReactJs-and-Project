@@ -5,11 +5,12 @@ import Person from './Person/Person';
 class App extends Component {
  state = {
   persons : [
-            {name:"Rishav",age:87},
-            {name:"Srivastava",age:17},
-            {name:"Hacker",age:27},
+            {id:'1sa',name:"Rishav",age:87},
+            {id:'2asd',name:"Srivastava",age:17},
+            {id:'3fss',name:"Hacker",age:27},
             ],
-  showContent : false
+  showContent : false,
+  showList : true
  }
 
 switchHandler = (newName) =>{
@@ -30,9 +31,34 @@ nameChangerHandler = (event) =>{
             ]
   })
 }
+nameChangHandler = (event,id) =>{
+  const personIndex = this.state.persons.findIndex(p =>{
+    return p.id === id
+  })
+  const person = {
+    ...this.state.persons[personIndex]
+  }
+  //const person = Object.assign({},this.state.persons[personIndex])
+  //const person = this.state.persons[personIndex];
+  person.name = event.target.value;
+  const updatePersons = [...this.state.persons];
+  updatePersons[personIndex] = person
+  this.setState({ persons: updatePersons})
+}
 toggleHandler = () =>{
     const content = this.state.showContent
-    this.setState({showContent : !content})
+    const showListContent  = this.state.showList;
+    this.setState({showContent : !content, showList:!showListContent})
+}
+deleteHandler = (personIndex) =>{
+   // const person = this.state.persons;//This is wrong method it will get referende
+    // Two method to copy
+    //const person = this.state.persons.slice();
+    const person = [...this.state.persons]
+    person.splice(personIndex,1);
+    this.setState({
+      persons:person
+    })
 }
 
   render() {
@@ -43,7 +69,7 @@ toggleHandler = () =>{
     }
     let person = null;
     if(this.state.showContent){
-      return (
+      person = (
         <div>
               <Person 
             click={this.switchHandler.bind('this','Hack')} 
@@ -56,6 +82,24 @@ toggleHandler = () =>{
         </div>
           )
     }
+    let personList = null;
+    if(this.state.showList){
+      personList = (
+          <div>
+
+          <h3>Below are the content of List</h3>
+          <p>If u delete any thing it will throw an error </p>
+          {this.state.persons.map((person,index)=>{
+              return <Person click = {() => this.deleteHandler(index)}
+                    key={person.id}
+                    id={index+1}
+                    name={person.name} 
+                    age={person.age}
+                    change = {(event) => this.nameChangHandler(event,person.id)}/>
+          })}
+          </div>
+        )
+    }
     return (
       <div className="App">
         <button style={style} onClick={() => this.switchHandler('Hacker')}>Switch Name</button>
@@ -67,6 +111,7 @@ toggleHandler = () =>{
             </div> : null
           }
           {person}
+          {personList}
       </div>
     );
   }

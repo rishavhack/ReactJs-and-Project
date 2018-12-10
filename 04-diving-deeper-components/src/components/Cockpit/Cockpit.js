@@ -1,5 +1,6 @@
 import React from 'react';
-import './Cockpit.css'
+import './Cockpit.css';
+import Aux from '../../hoc/Aux';
 
 const cockpit = (props) =>{
 	const assignedClasses = [];
@@ -16,11 +17,13 @@ const cockpit = (props) =>{
 		assignedClasses.push('bold');
 	}
 	return (
+		<Aux>
 			<div className='Cockpit'>
 				<h1>{props.titleValue}</h1>
 				<p className={assignedClasses.join(' ')}>This is really work</p>
      			 <button style={style} onClick={props.clicked}>Toggle view</button>
 			</div>
+		</Aux>
 		)
 }
 

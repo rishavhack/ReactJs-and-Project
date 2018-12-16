@@ -36,24 +36,22 @@ For example, 2 + 2, user.firstName, or formatName(user) are all valid JavaScript
 In the example below, we embed the result of calling a JavaScript function, 
 formatName(user), into an <h1> element.
 
+
 ```
-function formatName(user){
-	return user.firstName + ' ' + user.lastName;
-}
 
-const user = {
-	firstName : 'Rishav',
-	lastName : 'Srivastava'
-};
+function formatName(user)
+{ 
+	return user.firstName + ' ' + user.lastName; 
+} 
+const user = { 
+	firstName : 'Rishav', 
+	lastName : 'Srivastava' 
+}; 
+const element = ( 
+	<h1> Hello,{formatName(user)} </h1> 
+); 
+ReactDOM.render( element,document.getElementById('root') );
 
-const element = (
-	<h1>
-	Hello,{formatName(user)}
-	</h1>
-);
-ReactDOM.render(
-	element,document.getElementById('root')
-);
 ```
 
 ### JSX is an Expression Too
@@ -86,12 +84,14 @@ const element = (
 	<h1 className="greeting">
     	Hello, world!
   	</h1>
-)
+);
+
 const element = React.createElement(
   'h1',
   {className: 'greeting'},
   'Hello, world!'
 );
+
 const element = React.createElement(
   'h1',
   {className: 'greeting'},

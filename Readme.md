@@ -146,6 +146,49 @@ setInterval(tick, 1000);
 React DOM compares the element and its children to the previous one, and only applies the DOM updates necessary to bring the DOM to the desired state.
 You can verify by inspecting the last example with the browser tools:
 
+## 4. Components and Props
 
+Components let you split the UI into independent, reusable pieces, and think about each piece in isolation.Conceptually, components are like JavaScript functions. They accept arbitrary inputs (called “props”) and return React elements describing what should appear on the screen.
 
+### Function and Class Components
 
+The simplest way to define a component is to write a JavaScript function:
+
+```
+function Welcome(props){
+	return <h1>Hello, {props.name} </h1>
+}
+```
+
+This function is a valid React component because it accepts a single “props” (which stands for properties) object argument with data and returns a React element. We call such components ***“function components”*** because they are literally JavaScript functions.
+
+In ES6 to define a component:
+```
+class Welcome extends React.Component{
+	render() {
+		return <h1>Hello, {this.props.name} </h1>
+	}
+}
+```
+
+The above two components are equivalent from React’s point of view
+
+### Rendering a Component
+
+However, elements can also represent user-defined components:
+```
+function Welcome(props) {
+  return <h1>Hello, {props.name}</h1>;
+}
+
+const element = <Welcome name="Rishav" />;
+ReactDOM.render(
+  element,
+  document.getElementById('root')
+);
+```
+Let’s recap what happens in this example:
+1. We call ReactDOM.render() with the <Welcome name="Rishav" /> element.
+2. React calls the Welcome component with {name: 'Rishav'} as the props.
+3. Our Welcome component returns a <h1>Hello, Rishav</h1> element as the result.
+4. React DOM efficiently updates the DOM to match <h1>Hello, Rishav</h1>.

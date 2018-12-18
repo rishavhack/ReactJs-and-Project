@@ -190,8 +190,8 @@ ReactDOM.render(
 Let’s recap what happens in this example:
 1. We call ReactDOM.render() with the <Welcome name="Rishav" /> element.
 2. React calls the Welcome component with {name: 'Rishav'} as the props.
-3. Our Welcome component returns a '<h1>Hello, Rishav</h1>' element as the result.
-4. React DOM efficiently updates the DOM to match '<h1>Hello, Rishav</h1>'.
+3. Our Welcome component returns a <h1 tag>Hello, Rishav</h1 tag> element as the result.
+4. React DOM efficiently updates the DOM to match <h1 tag>Hello, Rishav</h1 tag>.
 
 
 ## 5.State and Lifecycle

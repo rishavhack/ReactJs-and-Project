@@ -395,8 +395,7 @@ Let’s quickly recap what’s going on and the order in which the methods are c
 
 
 
-
-
+## 6.Handling Events
 
 
 

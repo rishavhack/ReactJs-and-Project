@@ -804,3 +804,5 @@ this.setState({
   [name]: value
 });
 ```
+
+## Lifting State Up

@@ -819,3 +819,36 @@ function BoilingVerdict(props) {
   return <p>The water would not boil.</p>;
 }
 ```
+
+Next, we will create a component called Calculator. It renders an <input> that lets you enter the temperature, and keeps its value in this.state.temperature.
+
+Additionally, it renders the BoilingVerdict for the current input value.
+```
+class Calculator extends React.Component {
+  constructor(props) {
+    super(props);
+    this.handleChange = this.handleChange.bind(this);
+    this.state = {temperature: ''};
+  }
+
+  handleChange(e) {
+    this.setState({temperature: e.target.value});
+  }
+
+  render() {
+    const temperature = this.state.temperature;
+    return (
+      <fieldset>
+        <legend>Enter temperature in Celsius:</legend>
+        <input
+          value={temperature}
+          onChange={this.handleChange} />
+
+        <BoilingVerdict
+          celsius={parseFloat(temperature)} />
+
+      </fieldset>
+    );
+  }
+}
+```
